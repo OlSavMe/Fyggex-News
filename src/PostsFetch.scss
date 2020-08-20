@@ -1,0 +1,75 @@
+@mixin phone {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5%;
+  h1 {
+    color: white;
+    text-align: center;
+    text-shadow: lightslategray 3px 3px;
+    margin: 3rem;
+  }
+
+  .inner {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @include phone {
+      flex-direction: column;
+    }
+
+    .card {
+      justify-content: flex-start;
+      border: 1px solid #dcdcdc;
+      border-radius: 20px;
+      box-shadow: rgb(155, 171, 187) 6px 6px;
+      margin: 1.5rem;
+      padding: 2%;
+      background-color: white;
+      transition: all 0.3s ease-in-out;
+      width: calc(40% - 10px);
+
+      @include phone {
+        max-width: none;
+        min-height: none;
+        margin: 3% 1%;
+        padding: 4%;
+      }
+
+      &:hover {
+        box-shadow: lightslategray 10px 10px;
+      }
+
+      h2 {
+        margin: 2rem;
+        font-size: 1.3rem;
+      }
+
+      p {
+        margin: 1rem;
+        color: black;
+        font-size: 0.9rem;
+
+        @include phone {
+          margin: 0.2rem;
+        }
+      }
+
+      p:nth-child(n + 4) {
+        display: none;
+      }
+
+      img {
+        display: none;
+      }
+    }
+  }
+}
