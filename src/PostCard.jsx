@@ -3,10 +3,16 @@ import ReactHtmlParser, {
   convertNodeToElement,
   processNodes,
 } from "react-html-parser";
+import ImgContainer from "./ImgContainer";
+import moment from "moment";
 
 const PostCard = ({ post }) => {
   const title = post.title.rendered;
-  const content = post.content.rendered;
+  const content = post.excerpt.rendered;
+  const id = post.featured_media;
+  const date = post.date;
+
+  console.log(id);
 
   const transform = (node, index) => {
     if (
@@ -25,16 +31,18 @@ const PostCard = ({ post }) => {
 
   return (
     <section className="card">
+      <h3>{moment(date).format("dddd, MMMM Do YYYY")}</h3>
       <h2>{ReactHtmlParser(title)}</h2>
       <p>{ReactHtmlParser(content, options)}</p>
       <a
         href={post.link}
         target="_blank"
         rel="noopener noreferrer"
-        style={{ margin: "2rem", color: "black" }}
+        style={{ margin: "0 2rem 1rem", color: "black" }}
       >
         Read more...
       </a>
+      <ImgContainer id={id} />
     </section>
   );
 };

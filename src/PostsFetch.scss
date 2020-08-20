@@ -4,11 +4,17 @@
   }
 }
 
+@mixin tablet {
+  @media only screen and (min-width: 769px) and (max-width: 1199px) {
+    @content;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5%;
+
   h1 {
     color: white;
     text-align: center;
@@ -24,39 +30,57 @@
 
     @include phone {
       flex-direction: column;
+      align-content: center;
     }
 
-    .card {
-      justify-content: flex-start;
+    .card,
+    i {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
       border: 1px solid #dcdcdc;
-      border-radius: 20px;
-      box-shadow: rgb(155, 171, 187) 6px 6px;
-      margin: 1.5rem;
-      padding: 2%;
+      border-radius: 1px;
+      box-shadow: rgb(177, 188, 199) 4px 4px;
+      margin: 2.5rem 1rem;
+      padding: 1.5%;
       background-color: white;
       transition: all 0.3s ease-in-out;
-      width: calc(40% - 10px);
+      width: calc(30% - 10px);
+      min-height: 500px;
 
       @include phone {
-        max-width: none;
+        width: 90%;
         min-height: none;
         margin: 3% 1%;
         padding: 4%;
       }
 
+      @include tablet {
+        width: calc(40% - 10px);
+      }
+
       &:hover {
-        box-shadow: lightslategray 10px 10px;
+        box-shadow: rgb(177, 188, 199) 6px 6px;
+      }
+
+      h3 {
+        margin: 0.5rem 2rem;
+        font-size: 0.8rem;
+        opacity: (0.8);
       }
 
       h2 {
-        margin: 2rem;
-        font-size: 1.3rem;
+        margin: 1rem 2rem;
+        font-size: 1rem;
+        color: indigo;
       }
 
       p {
-        margin: 1rem;
+        margin: 0.5rem;
         color: black;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        text-align: justify;
+        text-justify: inter-word;
 
         @include phone {
           margin: 0.2rem;
@@ -67,9 +91,45 @@
         display: none;
       }
 
-      img {
+      .img-container {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        img {
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    i {
+      border: none;
+      box-shadow: none;
+      border-radius: none;
+      background: inherit;
+
+      &:hover {
+        box-shadow: none;
+      }
+
+      @include phone {
+        display: none;
+      }
+
+      @include tablet {
         display: none;
       }
     }
+  }
+  footer {
+    color: white;
+    text-align: center;
+    text-shadow: lightslategray 3px 3px;
+    margin: 3rem;
+    font-size: 1.5rem;
   }
 }
