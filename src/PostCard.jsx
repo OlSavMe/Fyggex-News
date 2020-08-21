@@ -1,8 +1,5 @@
 import React from "react";
-import ReactHtmlParser, {
-  convertNodeToElement,
-  processNodes,
-} from "react-html-parser";
+import ReactHtmlParser, { processNodes } from "react-html-parser";
 import ImgContainer from "./ImgContainer";
 import moment from "moment";
 
@@ -11,8 +8,6 @@ const PostCard = ({ post }) => {
   const content = post.excerpt.rendered;
   const id = post.featured_media;
   const date = post.date;
-
-  console.log(id);
 
   const transform = (node, index) => {
     if (

@@ -18,8 +18,8 @@
   h1 {
     color: white;
     text-align: center;
-    text-shadow: lightslategray 3px 3px;
-    margin: 3rem;
+    text-shadow: #778899 3px 3px;
+    margin: 4rem 0 2rem;
   }
 
   .inner {
@@ -38,13 +38,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
-      border: 1px solid #dcdcdc;
+      border: solid 1px transparent;
       border-radius: 1px;
-      box-shadow: rgb(177, 188, 199) 4px 4px;
       margin: 2.5rem 1rem;
       padding: 1.5%;
       background-color: white;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.5s ease-in-out;
       width: calc(30% - 10px);
       min-height: 500px;
 
@@ -60,19 +59,18 @@
       }
 
       &:hover {
-        box-shadow: rgb(177, 188, 199) 6px 6px;
+        border: solid 1px #b4b4cb;
       }
 
       h3 {
         margin: 0.5rem 2rem;
         font-size: 0.8rem;
-        opacity: (0.8);
       }
 
       h2 {
         margin: 1rem 2rem;
         font-size: 1rem;
-        color: indigo;
+        color: #4f4f72;
       }
 
       p {

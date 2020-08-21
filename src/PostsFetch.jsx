@@ -18,11 +18,6 @@ const PostsFetch = () => {
     });
   };
 
-  const formatText = (str) => {
-    const eventText = str.replace(/&nbsp;/g, "");
-    return eventText;
-  };
-
   return (
     <div className="container">
       <h1>Fyggex news</h1>

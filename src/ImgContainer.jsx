@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-// import defaultImage from "../../assets/photos/defaultImage.png";
+import defaultImage from "./assets/default.png";
 
 const ImgContainer = (props) => {
   const [pic, setPic] = useState("");
+  let [stat, setStat] = React.useState();
   const id = props.id;
 
   useEffect(() => {
@@ -13,16 +14,20 @@ const ImgContainer = (props) => {
   const getPic = async () => {
     await Axios.get(`https://fyggex.com/wp-json/wp/v2/media/${id}`).then(
       (response) => {
-        setPic(response.data.source_url);
+        console.log(response.status);
+        setStat(response.status);
+        setPic(response.data.media_details.sizes.medium.source_url);
       }
     );
   };
 
-  console.log(pic);
-
   return (
     <div className="img-container">
-      <img src={pic} />
+      {stat === 200 ? (
+        <img src={pic} alt="" />
+      ) : (
+        <img src={defaultImage} alt="" />
+      )}
     </div>
   );
 };
