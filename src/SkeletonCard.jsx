@@ -11,7 +11,7 @@ const SkeletonCard = () => {
           <div
             className="card"
             key={index}
-            style={{ background: "transparent" }}
+            style={{ background: "transparent", border: "none" }}
           >
             <div>
               <Skeleton height={500} width={`100%`} />

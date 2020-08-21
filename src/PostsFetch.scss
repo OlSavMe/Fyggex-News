@@ -79,6 +79,8 @@
         font-size: 0.8rem;
         text-align: justify;
         text-justify: inter-word;
+        width: 95%;
+        overflow: hidden;
 
         @include phone {
           margin: 0.2rem;
@@ -126,7 +128,7 @@
   footer {
     color: white;
     text-align: center;
-    text-shadow: #778899 2px 2px;
+    text-shadow: #778899 2px 2 px;
     margin: 3rem;
     font-size: 1.5rem;
   }
