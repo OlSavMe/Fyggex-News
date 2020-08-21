@@ -25,20 +25,17 @@ const PostCard = ({ post }) => {
   };
 
   return (
-    <section className="card">
+    <a
+      href={post.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="card"
+    >
+      <ImgContainer id={id} title={title} />
       <h3>{moment(date).format("dddd, MMMM Do YYYY")}</h3>
-      <h2>{ReactHtmlParser(title)}</h2>
       <p>{ReactHtmlParser(content, options)}</p>
-      <a
-        href={post.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ margin: "0 2rem 1rem", color: "black" }}
-      >
-        Read more...
-      </a>
-      <ImgContainer id={id} />
-    </section>
+      <p id="readmore">Read more...</p>
+    </a>
   );
 };
 

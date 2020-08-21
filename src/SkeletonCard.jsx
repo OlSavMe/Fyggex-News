@@ -11,10 +11,10 @@ const SkeletonCard = () => {
           <div
             className="card"
             key={index}
-            style={{ background: "transparent", border: "none" }}
+            style={{ background: "transparent", boxShadow: "none" }}
           >
             <div>
-              <Skeleton height={500} width={`100%`} />
+              <Skeleton height={450} width={`100%`} />
             </div>
           </div>
         ))}

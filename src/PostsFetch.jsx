@@ -33,7 +33,16 @@ const PostsFetch = () => {
         <i aria-hidden={true}></i>
       </div>
       <footer>
-        <p>Source: https://fyggex.com</p>
+        <p>
+          Source:{" "}
+          <a
+            href="https://fyggex.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://fyggex.com
+          </a>
+        </p>
       </footer>
     </div>
   );

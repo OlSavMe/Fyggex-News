@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import defaultImage from "./assets/default.png";
+import ReactHtmlParser from "react-html-parser";
 
 const ImgContainer = (props) => {
   const [pic, setPic] = useState("");
   let [stat, setStat] = React.useState();
   const id = props.id;
+  const title = props.title;
 
   useEffect(() => {
     getPic(); // eslint-disable-next-line
@@ -28,6 +30,9 @@ const ImgContainer = (props) => {
       ) : (
         <img src={defaultImage} alt="" />
       )}
+      <h2>
+        <span>{ReactHtmlParser(title)}</span>
+      </h2>
     </div>
   );
 };
