@@ -47,7 +47,8 @@
       align-content: center;
     }
 
-    .card {
+    .card,
+    i {
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -148,8 +149,6 @@
       box-shadow: none;
       border-radius: none;
       background: inherit;
-      width: calc(30% - 10px);
-      min-height: 450px;
 
       &:hover {
         box-shadow: none;
