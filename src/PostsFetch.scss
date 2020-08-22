@@ -47,11 +47,10 @@
       align-content: center;
     }
 
-    .card,
-    i {
+    .card {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start;
       border: solid 1px transparent;
       border-radius: 1px;
       margin: 2rem 1rem;
@@ -79,33 +78,39 @@
         transform: scale(1.01);
       }
 
-      h3 {
-        margin: 0.1rem 0;
-        font-size: 0.8rem;
-        color: #4f4f72;
-      }
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 1rem 0;
 
-      p {
-        margin: 0;
-        color: black;
-        font-size: 0.8rem;
-        text-align: justify;
-        text-justify: inter-word;
-        width: 95%;
-        overflow: hidden;
+        h3 {
+          margin: 0.1rem 0;
+          font-size: 0.8rem;
+          color: #4f4f72;
+        }
 
-        @include phone {
+        p {
           margin: 0;
+          color: black;
+          font-size: 0.8rem;
+          text-align: justify;
+          text-justify: inter-word;
+          width: 95%;
+          overflow: hidden;
+
+          @include phone {
+            margin: 0;
+          }
+        }
+
+        #readmore {
+          margin: 0;
+          color: black;
+          font-size: 1rem;
+          text-decoration: underline;
         }
       }
-
-      #readmore {
-        margin: 0;
-        color: black;
-        font-size: 1rem;
-        text-decoration: underline;
-      }
-
       .img-container {
         display: flex;
         justify-content: center;
@@ -143,6 +148,8 @@
       box-shadow: none;
       border-radius: none;
       background: inherit;
+      width: calc(30% - 10px);
+      min-height: 450px;
 
       &:hover {
         box-shadow: none;
