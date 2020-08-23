@@ -34,8 +34,8 @@ const PostCard = ({ post }) => {
       <ImgContainer id={id} title={title} />
       <div className="info">
         <h3>{moment(date).format("dddd, MMMM Do YYYY")}</h3>
-        <p>{ReactHtmlParser(content, options)}</p>
-        <p id="readmore">Read more...</p>
+        <p>{ReactHtmlParser(content)}</p>
+        {/* <p id="readmore">Read more...</p> */}
       </div>
     </a>
   );

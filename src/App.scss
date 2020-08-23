@@ -17,13 +17,14 @@
     z-index: 1000;
     cursor: pointer;
     animation: fadeIn 0.3s;
-    transition: opacity 0.4s;
+    transition: opacity 0.4s, transform 150ms ease;
     opacity: 0.7;
     color: #778899;
   }
 
   .scrollTop:hover {
     opacity: 1;
+    color: #51565c;
   }
 
   @keyframes fadeIn {

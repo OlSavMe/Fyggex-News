@@ -59,7 +59,7 @@
       background-color: white;
       transition: all 0.5s ease-in-out;
       width: calc(30% - 10px);
-      min-height: 450px;
+      min-height: 420px;
       text-decoration: none;
 
       @include phone {
@@ -144,29 +144,63 @@
       }
     }
 
-    i {
+    // i {
+    //   border: none;
+    //   box-shadow: none;
+    //   border-radius: none;
+    //   background: inherit;
+
+    //   &:hover {
+    //     box-shadow: none;
+    //   }
+
+    //   @include phone {
+    //     display: none;
+    //   }
+
+    //   @include tablet {
+    //     display: none;
+    //   }
+    // }
+  }
+
+  .load-more {
+    padding: 5px;
+    background-color: rgb(255, 255, 82);
+    font-size: 1.5rem;
+    font-family: inherit;
+    border-radius: 5px;
+    width: 25%;
+    align-self: center;
+    display: block;
+    border: none;
+    margin: 2rem 0;
+    letter-spacing: 0.2rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+
+    &:hover {
       border: none;
-      box-shadow: none;
-      border-radius: none;
-      background: inherit;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      outline: none;
+    }
 
-      &:hover {
-        box-shadow: none;
-      }
+    &:focus {
+      border: none;
+      outline: none;
+    }
 
-      @include phone {
-        display: none;
-      }
-
-      @include tablet {
-        display: none;
-      }
+    @include phone {
+      font-size: 1rem;
+      width: 70%;
     }
   }
   footer {
     color: black;
     text-align: center;
-    margin: 3rem;
+    margin: 5rem;
     font-size: 1.5rem;
     a {
       text-decoration: none;

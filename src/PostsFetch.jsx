@@ -7,18 +7,24 @@ import SkeletonCard from "./SkeletonCard";
 const PostsFetch = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
-  const URL = "https://fyggex.com/wp-json/wp/v2/posts/?per_page=100";
-
-  useEffect(() => {
-    getPosts();
-  }, []);
-
-  const getPosts = async () => {
-    await Axios.get(URL).then((response) => {
-      setPosts(response.data);
+  const morePosts = async () => {
+    await Axios.get(
+      `https://fyggex.com/wp-json/wp/v2/posts?per_page=12&page=${page}`
+    ).then((res) => {
+      setPosts([...posts, ...res.data]);
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    morePosts();
+  }, [page]);
+
+  const loadPosts = () => {
+    setPage(page >= 1 ? page + 1 : 1);
+    setLoading(true);
   };
 
   return (
@@ -29,9 +35,12 @@ const PostsFetch = () => {
         {posts.map((post, i) => (
           <PostCard key={i} post={post} />
         ))}
-        <i aria-hidden={true}></i>
-        <i aria-hidden={true}></i>
+        {/* <i aria-hidden={true}></i>
+        <i aria-hidden={true}></i> */}
       </div>
+      <button className="load-more" onClick={loadPosts}>
+        More news
+      </button>
       <footer>
         <p>
           Source:{" "}
