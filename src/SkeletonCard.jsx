@@ -14,7 +14,7 @@ const SkeletonCard = () => {
             style={{ background: "transparent", boxShadow: "none" }}
           >
             <div>
-              <Skeleton height={420} width={`100%`} />
+              <Skeleton height={360} width={`100%`} />
             </div>
           </div>
         ))}

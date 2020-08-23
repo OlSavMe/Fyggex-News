@@ -24,6 +24,11 @@ const PostCard = ({ post }) => {
     transform,
   };
 
+  const formatText = (e) => {
+    const eventText = e + " . . .";
+    return eventText;
+  };
+
   return (
     <a
       href={post.link}
@@ -34,8 +39,7 @@ const PostCard = ({ post }) => {
       <ImgContainer id={id} title={title} />
       <div className="info">
         <h3>{moment(date).format("dddd, MMMM Do YYYY")}</h3>
-        <p>{ReactHtmlParser(content)}</p>
-        {/* <p id="readmore">Read more...</p> */}
+        <p>{ReactHtmlParser(formatText(content.substring(0, 150)))}</p>
       </div>
     </a>
   );

@@ -8,6 +8,7 @@ const PostsFetch = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [pagenr, setPageNr] = useState();
 
   const morePosts = async () => {
     await Axios.get(
@@ -17,6 +18,18 @@ const PostsFetch = () => {
       setLoading(false);
     });
   };
+
+  const getPageNr = async () => {
+    await Axios.get("https://fyggex.com/wp-json/wp/v2/posts?per_page=12").then(
+      (res) => {
+        setPageNr(res.headers["x-wp-totalpages"]);
+      }
+    );
+  };
+
+  useEffect(() => {
+    getPageNr();
+  }, []);
 
   useEffect(() => {
     morePosts();
@@ -35,12 +48,12 @@ const PostsFetch = () => {
         {posts.map((post, i) => (
           <PostCard key={i} post={post} />
         ))}
-        {/* <i aria-hidden={true}></i>
-        <i aria-hidden={true}></i> */}
       </div>
-      <button className="load-more" onClick={loadPosts}>
-        More news
-      </button>
+      {page < pagenr && (
+        <button className="load-more" onClick={loadPosts}>
+          More news
+        </button>
+      )}
       <footer>
         <p>
           Source:{" "}
